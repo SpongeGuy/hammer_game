@@ -8,8 +8,12 @@ public class CameraController : MonoBehaviour
     public float minVerticalAngle = -30f;
     public float maxVerticalAngle = 60f;
     public float distance = 5f;
+    public float smoothTime = 0.2f;
 
     private Vector2 lookInput;
+    private Vector2 smoothedLookInput;
+    private Vector2 smoothVelocity;
+
     private float currentYaw;
     private float currentPitch;
 
@@ -19,13 +23,18 @@ public class CameraController : MonoBehaviour
         Vector3 direction = transform.localPosition.normalized;
         currentPitch = Mathf.Asin(direction.y) * Mathf.Rad2Deg;
         currentYaw = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+
+        smoothedLookInput = Vector2.zero;
     }
 
     void LateUpdate()
     {
-        
-        currentYaw += lookInput.x * orbitSpeed * Time.deltaTime;
-        currentPitch -= lookInput.y * orbitSpeed * Time.deltaTime; // Invert Y for intuitive control
+        // this is for camera polish
+        // smooth dampening on the camera's orbit speed
+        smoothedLookInput = Vector2.SmoothDamp(smoothedLookInput, lookInput, ref smoothVelocity, smoothTime);
+
+        currentYaw += smoothedLookInput.x * orbitSpeed * Time.deltaTime;
+        currentPitch -= smoothedLookInput.y * orbitSpeed * Time.deltaTime; // Invert Y for intuitive control
         currentPitch = Mathf.Clamp(currentPitch, minVerticalAngle, maxVerticalAngle);
 
         // calculate camera position using spherical coordinates
