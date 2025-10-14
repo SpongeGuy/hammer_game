@@ -1,1 +1,1 @@
-C:\dev\repos\unity\hammerquest\New Unity Project
+/var/home/bazzite/GDProject/hammer_game
