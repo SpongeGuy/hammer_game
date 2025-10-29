@@ -1,1 +1,1 @@
-/home/elis-asus/hammerGameMine/hammer_game
+/var/home/bazzite/GDProjectFix/hammer_game
