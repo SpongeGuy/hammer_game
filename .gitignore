@@ -2,3 +2,41 @@ Temp
 UserSettings
 Logs
 .vscode
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+MemoryCaptures/
+
+# Unity Cache/Artifacts
+[Ll]ibrary/
+[Bb]ee/
+[Oo]bj/
+[Ll]ightmapSnapshot/
+*.pidb
+*.booproj
+*.userprefs
+
+# Visual Studio / Rider
+.vs/
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.unityproj
+
+# Build files
+*.apk
+*.aab
+*.exe
+*.app
+*.xcodeproj/
+
+# TextMesh Pro stuff that’s auto-generated
+[Tt]extMesh Pro/Build/
+[Tt]extMesh Pro/Resources/Fonts & Materials/
