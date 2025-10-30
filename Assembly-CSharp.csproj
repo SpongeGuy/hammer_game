@@ -61,9 +61,9 @@
     <Analyzer Include="C:\Program Files\Unity 6000.0.54f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlayerControls.cs" />
-    <Compile Include="Assets\PlayerController.cs" />
-    <Compile Include="Assets\CameraController.cs" />
+    <Compile Include="Assets\scripts\PlayerControls.cs" />
+    <Compile Include="Assets\scripts\CameraController.cs" />
+    <Compile Include="Assets\scripts\PlayerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
