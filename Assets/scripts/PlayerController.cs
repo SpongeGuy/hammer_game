@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 
@@ -32,6 +32,21 @@ public class PlayerController : MonoBehaviour
     public Transform cameraTransform; // camera ref
     private CameraController cameraController;
     private PlayerControls controls;
+
+    [Header("Model Settings")]
+    public Transform modelTransform;
+    private float modelRotationSpeed = 10f;
+
+    [Header("Animation")]
+    public Animator modelAnimator;
+    [Tooltip("0..1 normalized, used by blend tree to pick idle/walk/run")]
+    public string moveParam = "Move";
+    public string playbackParam = "PlaybackSpeed";
+    [Tooltip("Playback speed range used for walk; min 1 = frozen, max 3 = triple speed")]
+    public float playbackMin = 1f;
+    public float playbackMax = 3f;
+    private float playbackSmoothTime = 0.08f;
+    private float playbackVelocitySmooth;
 
     void Awake()
     {
@@ -91,6 +106,8 @@ public class PlayerController : MonoBehaviour
         HandleAbilities(); // Placeholder for future abilities (hammer swing, special jumps)
         ApplyGravity();
         ApplyMovement(moveDirection);
+        UpdateAnimationParameters(moveDirection);
+        RotateModel(moveDirection);
         HandleWallJump(); // Placeholder for future wall jumping
         HandleLedgeGrab(); // Placeholder for future ledge grabbing
     }
@@ -239,6 +256,62 @@ public class PlayerController : MonoBehaviour
     {
         // TODO: Implement ledge grab detection and logic
     }
+
+    private void RotateModel(Vector3 moveDirection)
+    {
+        // Ignore vertical component to prevent tilting up/down
+        Vector3 flatDirection = new Vector3(moveDirection.x, 0f, moveDirection.z);
+
+        // Only rotate if there is input (to avoid snapping when idle)
+        if (flatDirection.sqrMagnitude > 0.001f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(flatDirection);
+            modelTransform.rotation = Quaternion.Slerp(
+                modelTransform.rotation,
+                targetRotation,
+                modelRotationSpeed * Time.deltaTime
+            );
+        }
+    }
+
+    private void UpdateAnimationParameters(Vector3 moveDirection)
+    {
+        if (modelAnimator == null) return;
+
+        // calculate normalized speed ratio (0..1)
+        float speedRatio = 0f;
+        if (MaxSpeed > 0f)
+        {
+            speedRatio = currentSpeed / MaxSpeed;
+            // ensure we don’t exceed 1
+            speedRatio = Mathf.Clamp01(speedRatio);
+
+            // treat near‑max as full
+            if (speedRatio > 0.99f)
+            {
+                speedRatio = 1f;
+            }
+        }
+
+        // set blend tree parameter
+        modelAnimator.SetFloat(moveParam, speedRatio);
+
+        // map to playback multiplier
+        float targetPlayback = Mathf.Lerp(playbackMin, playbackMax, speedRatio);
+
+        // smooth playback parameter
+        float currentPlayback = modelAnimator.GetFloat(playbackParam);
+        float smoothedPlayback = Mathf.SmoothDamp(
+            currentPlayback,
+            targetPlayback,
+            ref playbackVelocitySmooth,
+            playbackSmoothTime
+        );
+
+        modelAnimator.SetFloat(playbackParam, smoothedPlayback);
+
+    }
+
 
     void OnDisable()
     {
