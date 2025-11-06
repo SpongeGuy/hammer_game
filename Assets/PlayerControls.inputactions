@@ -4,13 +4,31 @@
     "maps": [
         {
             "name": "Player",
-            "id": "ac1de664-a24f-45ec-9c53-a10a51f257c2",
+            "id": "dd0ca7ef-4960-46f4-b793-ba57f5debd92",
             "actions": [
+                {
+                    "name": "HammerSwing",
+                    "type": "Button",
+                    "id": "b7c3b0f5-935e-41b7-b551-5f8f1b665185",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "0ce57015-feb9-4ff4-b414-cd9d51680f41",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
                 {
                     "name": "Movement",
                     "type": "Value",
-                    "id": "77806086-a8b1-4910-b4c4-2c091b8207ea",
-                    "expectedControlType": "Vector2",
+                    "id": "fc0481ea-737b-4874-9072-3aad021b8fa1",
+                    "expectedControlType": "Stick",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -18,26 +36,17 @@
                 {
                     "name": "Look",
                     "type": "Value",
-                    "id": "101f0d12-20e5-4a71-8808-7d062f65148f",
-                    "expectedControlType": "Vector2",
+                    "id": "0297faa8-7e1c-4ae5-88f5-ab7f1dc64e7b",
+                    "expectedControlType": "Stick",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "c9ba2e1d-338d-427d-a1c5-11b6cb9866af",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "4abd153d-48f8-481c-9528-e3efc6cf5645",
+                    "id": "f93a9465-a37a-433a-b1bb-7b8ee8e88980",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
@@ -48,7 +57,7 @@
                 },
                 {
                     "name": "",
-                    "id": "ab3d3a7b-a046-4203-9d33-e4d3922920ba",
+                    "id": "d9b94511-f831-49f0-b908-07e9a2c6f6c8",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
@@ -59,12 +68,23 @@
                 },
                 {
                     "name": "",
-                    "id": "8226437b-6d66-4058-ab08-dd945a473d2e",
+                    "id": "ddc56311-d050-47f0-ad10-91ea3853293b",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2a07c07f-291e-4f47-987b-3e485ab662a8",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HammerSwing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

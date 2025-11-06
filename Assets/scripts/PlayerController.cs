@@ -15,7 +15,11 @@ public class PlayerController : MonoBehaviour
     public float minJumpHeight = 0.2f; // Min jump height when releasing jump button early
     public float jumpBufferTime = 0.2f; // Time (seconds) to buffer jump input before landing
 
-
+    [Header("Hammer Swing Settings")]
+    public Transform hammerHurtbox; 
+    public Animator hurtboxAnimator;
+    public string hammerSwingTrigger = "HammerSwing";
+    public string hurtboxTrigger = "HurtboxSwing";
 
     private CharacterController controller;
     private Vector3 velocity; // Current movement velocity
@@ -25,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private float accelTime;
     private float jumpBufferTimer = 0f; // Timer for buffered jump input
+    private bool isHammerSwinging = false; // Prevent spamming hammer
 
     public float MaxSpeed => maxSpeed; // Expose maxSpeed
 
@@ -112,6 +117,28 @@ public class PlayerController : MonoBehaviour
         HandleLedgeGrab(); // Placeholder for future ledge grabbing
     }
 
+    // plays both hurtbox animation AND model animation
+    public void PlayHammerSwing()
+    {
+        if (isHammerSwinging || modelAnimator == null || hurtboxAnimator == null) return;
+
+        isHammerSwinging = true;
+
+        // Play hammer swing animation on model
+        modelAnimator.SetTrigger(hammerSwingTrigger);
+        
+        // Play hurtbox arc animation
+        hurtboxAnimator.SetTrigger(hurtboxTrigger);
+
+        // Auto-reset after animation (adjust timing to match your anim length)
+        Invoke(nameof(ResetHammerSwing), 0.8f); // 0.8s = typical swing duration
+    }
+
+    private void ResetHammerSwing()
+    {
+        isHammerSwinging = false;
+    }
+
     // Updates ground state using CharacterController
     private void UpdateGroundState()
     {
@@ -175,7 +202,11 @@ public class PlayerController : MonoBehaviour
     // Placeholder for future abilities (e.g., hammer swing, special jump parameters, speedup/skid)
     private void HandleAbilities()
     {
-        // TODO: Implement hammer swing, special jumps
+        // Hammer swing on X button press (prevents spam with isHammerSwinging flag)
+        if (controls.Player.HammerSwing.WasPressedThisFrame()) // Assumes "HammerSwing" action exists
+        {
+            PlayHammerSwing();
+        }
     }
 
     // Applies gravity to vertical velocity
@@ -231,18 +262,9 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
 
-        // Apply air control limitation (placeholder for future mid-air velocity alteration)
-        HandleAirControl();
 
-        // Move with CharacterController
+        // Move with CharacterController help
         controller.Move(velocity * Time.deltaTime);
-    }
-
-    // Placeholder for limiting player velocity alteration in mid-air
-    private void HandleAirControl()
-    {
-        // TODO: Implement reduced air control (e.g., scale horizontal velocity when !isGrounded)
-        // Example: if (!isGrounded) { velocity.x *= 0.5f; velocity.z *= 0.5f; }
     }
 
     // Placeholder for wall jumping mechanics
