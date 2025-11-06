@@ -8,7 +8,8 @@ public class NailManager : MonoBehaviour
     public int maxNails = 3;
     public float followSpeed = 5f;
     public float followDistance = 1.5f;
-    private int nailCount = 0;
+    public int nailCount = 0;
+    public int totalNails = 0;
     private int visibleNails = 0;
     [SerializeField] private TextMeshProUGUI nailCountText;
     // On start, ensuring that there is only one instance of NailManager.
@@ -17,6 +18,13 @@ public class NailManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
+        UpdateNailCount();
+    }
+
+    // On start, count the total Nails and add to UI.
+    void Start()
+    {
+        totalNails = GameObject.FindObjectsByType<NailCollect>(FindObjectsSortMode.None).Length;
         UpdateNailCount();
     }
 
@@ -68,6 +76,6 @@ public class NailManager : MonoBehaviour
     // UI Management for Nails
     private void UpdateNailCount()
     {
-        nailCountText.text = "x" + nailCount;
+        nailCountText.text = nailCount + " / " + totalNails;
     }
 }
