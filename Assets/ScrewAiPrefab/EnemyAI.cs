@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     public AIState currentState;
 
- 
+    public Animator animator;
 
     public NavMeshAgent agent;
 
@@ -35,6 +35,8 @@ public class EnemyAI : MonoBehaviour
     void Start()
 
     {
+        animator = GetComponent<Animator>();
+        //animator.applyRootMotion = true;
 
         currentState = AIState.Idle;
 
@@ -103,7 +105,7 @@ public class EnemyAI : MonoBehaviour
     {
 
         agent.isStopped = true;
-
+        animator.SetFloat("Speed", 0.0f);
         idleTimer += Time.deltaTime;
 
  
@@ -127,7 +129,7 @@ public class EnemyAI : MonoBehaviour
     {
 
         agent.isStopped = false;
-
+        animator.SetFloat("Speed", 1.0f);
  
 
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
@@ -161,7 +163,7 @@ public class EnemyAI : MonoBehaviour
     {
 
         agent.isStopped = false;
-
+        animator.SetFloat("Speed", 1.0f);
         agent.SetDestination(player.position);
 
     }
