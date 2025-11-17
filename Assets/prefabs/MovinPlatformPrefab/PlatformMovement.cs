@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class PlatformMovement : MonoBehaviour
 {
+    public bool waitForPlayer = false;
     public float speed;
     public int startingPoint;
     public Transform[] points;
     private int i;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         transform.position = points[startingPoint].position;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (Vector3.Distance(transform.position, points[i].position) < 0.02f)
@@ -23,22 +23,11 @@ public class PlatformMovement : MonoBehaviour
                 i = 0;
             }
         }
-        transform.position = Vector3.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
+        if (!waitForPlayer) 
         {
-            other.transform.parent = this.gameObject.transform;
+            transform.position = Vector3.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            other.transform.parent = null;
-        }    
+        
     }
 }
