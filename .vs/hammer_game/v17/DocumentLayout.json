@@ -1,9 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\evcroppe\\Desktop\\sponge\\job\\hammer_game\\",
+  "WorkspaceRootPath": "C:\\Users\\evcroppe\\Desktop\\New folder\\hammer_game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8C597091-CBFE-03E7-056F-02AD95D5EA0A}|Assembly-CSharp.csproj|c:\\users\\evcroppe\\desktop\\sponge\\job\\hammer_game\\assets\\hammercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8C597091-CBFE-03E7-056F-02AD95D5EA0A}|Assembly-CSharp.csproj|c:\\users\\evcroppe\\desktop\\new folder\\hammer_game\\assets\\prefabs\\movinplatformprefab\\platformmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C597091-CBFE-03E7-056F-02AD95D5EA0A}|Assembly-CSharp.csproj|solutionrelative:assets\\prefabs\\movinplatformprefab\\platformmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C597091-CBFE-03E7-056F-02AD95D5EA0A}|Assembly-CSharp.csproj|c:\\users\\evcroppe\\desktop\\new folder\\hammer_game\\assets\\ui\\winmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C597091-CBFE-03E7-056F-02AD95D5EA0A}|Assembly-CSharp.csproj|solutionrelative:assets\\ui\\winmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C597091-CBFE-03E7-056F-02AD95D5EA0A}|Assembly-CSharp.csproj|C:\\Users\\evcroppe\\Desktop\\New folder\\hammer_game\\assets\\hammercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8C597091-CBFE-03E7-056F-02AD95D5EA0A}|Assembly-CSharp.csproj|solutionrelative:assets\\hammercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -19,15 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PlatformMovement.cs",
+              "DocumentMoniker": "C:\\Users\\evcroppe\\Desktop\\New folder\\hammer_game\\Assets\\prefabs\\MovinPlatformPrefab\\PlatformMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\prefabs\\MovinPlatformPrefab\\PlatformMovement.cs",
+              "ToolTip": "C:\\Users\\evcroppe\\Desktop\\New folder\\hammer_game\\Assets\\prefabs\\MovinPlatformPrefab\\PlatformMovement.cs",
+              "RelativeToolTip": "Assets\\prefabs\\MovinPlatformPrefab\\PlatformMovement.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T21:43:10.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WinManager.cs",
+              "DocumentMoniker": "C:\\Users\\evcroppe\\Desktop\\New folder\\hammer_game\\Assets\\UI\\WinManager.cs",
+              "RelativeDocumentMoniker": "Assets\\UI\\WinManager.cs",
+              "ToolTip": "C:\\Users\\evcroppe\\Desktop\\New folder\\hammer_game\\Assets\\UI\\WinManager.cs",
+              "RelativeToolTip": "Assets\\UI\\WinManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T20:38:01.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "HammerController.cs",
-              "DocumentMoniker": "C:\\Users\\evcroppe\\Desktop\\sponge\\job\\hammer_game\\Assets\\HammerController.cs",
+              "DocumentMoniker": "C:\\Users\\evcroppe\\Desktop\\New folder\\hammer_game\\Assets\\HammerController.cs",
               "RelativeDocumentMoniker": "Assets\\HammerController.cs",
-              "ToolTip": "C:\\Users\\evcroppe\\Desktop\\sponge\\job\\hammer_game\\Assets\\HammerController.cs",
+              "ToolTip": "C:\\Users\\evcroppe\\Desktop\\New folder\\hammer_game\\Assets\\HammerController.cs",
               "RelativeToolTip": "Assets\\HammerController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T22:26:11.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-06T22:26:11.512Z"
             }
           ]
         }
