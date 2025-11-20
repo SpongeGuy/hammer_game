@@ -47,16 +47,18 @@
     <Analyzer Include="/home/sponge/dev/unity_installs/6000.0.54f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Collectibles/Collectible.cs" />
     <Compile Include="Assets/prefabs/ScrewAiPrefab/EnemyAI.cs" />
+    <Compile Include="Assets/prefabs/SpikeBall/SpikeBallBehavior.cs" />
     <Compile Include="Assets/prefabs/MovinPlatformPrefab/PlatformMovement.cs" />
     <Compile Include="Assets/prefabs/MovinPlatformPrefab/platformCollision.cs" />
     <Compile Include="Assets/HammerController.cs" />
-    <Compile Include="Assets/Collectibles/CollectibleManager.cs" />
     <Compile Include="Assets/scripts/Player/PlayerControls.cs" />
     <Compile Include="Assets/prefabs/BreakableBrick/ParticleSpawner.cs" />
+    <Compile Include="Assets/prefabs/PrefabSpawner/Spawner.cs" />
     <Compile Include="Assets/prefabs/NailFollow/NailCollect.cs" />
     <Compile Include="Assets/UI/WinManager.cs" />
+    <Compile Include="Assets/prefabs/NUT/CollectibleManager.cs" />
+    <Compile Include="Assets/prefabs/NUT/Collectible.cs" />
     <Compile Include="Assets/UI/NailUI/NailSpin.cs" />
     <Compile Include="Assets/prefabs/BreakableBrick/Breakable.cs" />
     <Compile Include="Assets/prefabs/NailFollow/NailManager.cs" />

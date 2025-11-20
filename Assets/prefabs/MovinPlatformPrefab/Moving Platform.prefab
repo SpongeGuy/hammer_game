@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   platform: {fileID: 2900767324412134439}
+  platformController: {fileID: 7332032880617914574}
 --- !u!1 &5050252189268965634
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ee29fa7491fffd4a5158b5cadeb3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitForPlayer: 0
   speed: 3
   startingPoint: 0
   points:

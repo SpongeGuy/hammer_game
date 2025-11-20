@@ -12,6 +12,7 @@ public class platformCollision : MonoBehaviour
             if (platformController.waitForPlayer) platformController.waitForPlayer = false;
             other.gameObject.transform.parent = platform;
         }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -21,4 +22,5 @@ public class platformCollision : MonoBehaviour
             other.gameObject.transform.parent = null;
         }    
     }
+
 }
