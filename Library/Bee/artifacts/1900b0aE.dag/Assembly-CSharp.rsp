@@ -397,7 +397,6 @@
 "Assets/ScrewAiPrefab/EnemyAI.cs"
 "Assets/scripts/CameraController.cs"
 "Assets/scripts/PlayerController.cs"
-"Assets/scripts/PlayerControls.cs"
 "Assets/UI/NailUI/NailSpin.cs"
 -langversion:9.0
 /deterministic

@@ -63,7 +63,6 @@
   <ItemGroup>
     <Compile Include="Assets\Collectibles\Collectible.cs" />
     <Compile Include="Assets\PlayerControls.cs" />
-    <Compile Include="Assets\scripts\PlayerControls.cs" />
     <Compile Include="Assets\BreakableBrick\Breakable.cs" />
     <Compile Include="Assets\scripts\CameraController.cs" />
     <Compile Include="Assets\UI\NailUI\NailSpin.cs" />
