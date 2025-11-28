@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/prototype.unity
+    guid: da6923cc91f94814587f26faec9ff60b
+  - enabled: 1
+    path: Assets/Boss/BossFight.unity
+    guid: faa90c126234de01bb092c2ae8df9e92
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

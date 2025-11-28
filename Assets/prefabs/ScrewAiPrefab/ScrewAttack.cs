@@ -19,6 +19,11 @@ public class ScrewAttack : MonoBehaviour
                 pushDirection.Normalize();
                 other.GetComponent<CharacterController>().Move(-pushDirection * pushForce);
                 currentCooldown = cooldownDuration;
+                PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage();
+                }
             }
         }
     }
