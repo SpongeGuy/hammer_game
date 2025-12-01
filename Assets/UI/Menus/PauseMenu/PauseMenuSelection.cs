@@ -1,0 +1,114 @@
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
+
+public class PauseMenuSelection : MonoBehaviour
+{
+    private int currentButton = 1;
+    public GameObject resumeSelected;
+    public GameObject restartSelected;
+    public GameObject returnSelected;
+    public GameObject resume;
+    public GameObject restart;
+    public GameObject returns;
+    public GameObject resumeNail;
+    public GameObject returnNail;
+    public GameObject restartNail;
+    // Menu navigation is enabled.
+    void OnEnable()
+    {
+        MenuNavigator.OnUpPressed += MoveUp;
+        MenuNavigator.OnDownPressed += MoveDown;
+        MenuNavigator.OnSubmitPressed += UseButton;
+    }
+    // Menu navigation is disabled.
+    void OnDisable()
+    {
+        MenuNavigator.OnUpPressed -= MoveUp;
+        MenuNavigator.OnDownPressed -= MoveDown;
+        MenuNavigator.OnSubmitPressed -= UseButton;
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        UpdateSelectedButton();
+    }
+
+    // When moving up on main menu:
+    void MoveDown()
+    {
+        currentButton++;
+        if (currentButton > 3)
+        {
+            currentButton = 1;
+        }
+        UpdateSelectedButton();
+    }
+
+    // When moving down on main menu:
+    void MoveUp()
+    {
+        currentButton--;
+        if (currentButton < 1)
+        {
+            currentButton = 3;
+        }
+        UpdateSelectedButton();
+    }
+
+    // Called to update the visuals for the selected buttons.
+    void UpdateSelectedButton()
+    {
+       if (currentButton == 1)
+        {
+            returns.SetActive(true);
+            returnNail.SetActive(false);
+            returnSelected.SetActive(false);
+            restart.SetActive(true);
+            restartNail.SetActive(false);
+            restartSelected.SetActive(false);
+            resumeSelected.SetActive(true);
+            resume.SetActive(false);
+            resumeNail.SetActive(true);
+        } else if (currentButton == 2)
+        {
+            returns.SetActive(true);
+            returnNail.SetActive(false);
+            returnSelected.SetActive(false);
+            restart.SetActive(false);
+            restartNail.SetActive(true);
+            restartSelected.SetActive(true);
+            resumeSelected.SetActive(false);
+            resume.SetActive(true);
+            resumeNail.SetActive(false);
+        } else
+        {
+            returns.SetActive(false);
+            returnNail.SetActive(true);
+            returnSelected.SetActive(true);
+            restart.SetActive(true);
+            restartNail.SetActive(false);
+            restartSelected.SetActive(false);
+            resumeSelected.SetActive(false);
+            resume.SetActive(true);
+            resumeNail.SetActive(false);
+        }
+    }
+
+    // Called when the selected button is pressed.
+    void UseButton()
+    {
+        if (currentButton == 1)
+        {
+            Menus.Instance.ResumeGame();
+        } else if (currentButton == 2)
+        {
+            Menus.Instance.RestartLevel();
+        } else
+        {
+            Menus.Instance.ExitToMainMenu();
+        }
+    }
+}
+

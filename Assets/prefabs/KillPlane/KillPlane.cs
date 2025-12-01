@@ -8,7 +8,7 @@ public class KillPlane : MonoBehaviour
     {
         if (other.gameObject.tag.Equals(playerTag))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Menus.Instance.GameOver();
         }
     }
 }
