@@ -15,4 +15,13 @@ public class SpikeBallBehavior : MonoBehaviour
 
         }
     }
+
+    [SerializeField] string playerTag = "Player";
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(playerTag))
+        {
+            PlayerHealth.Instance.TakeDamage();
+        }
+    }
 }
