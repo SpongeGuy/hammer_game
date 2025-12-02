@@ -5,6 +5,11 @@ using UnityEngine.InputSystem;
 
 public class GameOverSelection : MonoBehaviour
 {
+     private AudioSource audioSource;
+    [SerializeField] private AudioClip menuSelect;
+    [SerializeField] private float selectVolume = 0.5f;
+    [SerializeField] private AudioClip menuHammer;
+    [SerializeField] private float hammerVolume = 0.5f;
     private int currentButton = 1;
     public GameObject retrySelected;
     public GameObject mainSelected;
@@ -29,6 +34,9 @@ public class GameOverSelection : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+
         UpdateSelectedButton();
     }
 
@@ -40,6 +48,7 @@ public class GameOverSelection : MonoBehaviour
         {
             currentButton = 1;
         }
+        audioSource.PlayOneShot(menuSelect, selectVolume);
         UpdateSelectedButton();
     }
 
@@ -51,6 +60,7 @@ public class GameOverSelection : MonoBehaviour
         {
             currentButton = 2;
         }
+        audioSource.PlayOneShot(menuSelect, selectVolume);
         UpdateSelectedButton();
     }
 
@@ -79,7 +89,7 @@ public class GameOverSelection : MonoBehaviour
     // Called when the selected button is pressed.
     void UseButton()
     {
-
+        DontCutAudio(menuHammer, hammerVolume);
         if (currentButton == 1)
         {
             Menus.Instance.StartGame();
@@ -87,5 +97,18 @@ public class GameOverSelection : MonoBehaviour
         {
             Menus.Instance.ExitToMainMenu();
         }
+    }
+
+    // Prevents the audio from cutting when switching scenes.
+    void DontCutAudio(AudioClip clip, float volume)
+    {
+        GameObject transitionAudio = new GameObject("TransitionAudio");
+        DontDestroyOnLoad(transitionAudio);
+
+        AudioSource transitionSource = transitionAudio.AddComponent<AudioSource>();
+        transitionSource.volume = volume;
+        transitionSource.PlayOneShot(clip);
+
+        Destroy(transitionAudio, clip.length);
     }
 }

@@ -59,7 +59,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4409d47d608fa80419fa443a41b8eb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentButton: 1
+  menuSelect: {fileID: 8300000, guid: 1867e0b4890ff1a4eb10b52d0ae3e1ea, type: 3}
+  selectVolume: 0.5
+  menuHammer: {fileID: 8300000, guid: a29b404cbb5a5f146b3d0b2a33a7b7cd, type: 3}
+  hammerVolume: 0.5
   beginSelected: {fileID: 0}
   quitSelected: {fileID: 0}
   begin: {fileID: 0}
