@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "hammer_game3.sln"
+    "dotnet.defaultSolution": "hammer_game4.sln"
 }

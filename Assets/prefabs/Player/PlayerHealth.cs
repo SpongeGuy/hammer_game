@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
+    private bool isInvincible = false;
+    public float invincibleTime = 2f;
     public void Awake()
     {
         if (Instance == null)
@@ -27,6 +29,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage()
     {
+        if (isInvincible == true) {
+            return;
+        }
         currentHealth -= 1;
         Debug.Log("Player took damage. Current Health: " + currentHealth);
         if (currentHealth <= 2)
@@ -45,11 +50,18 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+        } else {
+            isInvincible = true;
+            Invoke("NoMoreInvincible", 1f);
         }
     }
 
     void Die()
     {
         Menus.Instance.GameOver();
+    }
+
+    void NoMoreInvincible() {
+        isInvincible = false;
     }
 }
