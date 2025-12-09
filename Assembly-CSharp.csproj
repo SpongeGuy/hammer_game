@@ -51,7 +51,9 @@
     <Compile Include="Assets\UI\Menus\GameOverScreen\GameOverSelection.cs" />
     <Compile Include="Assets\prefabs\KillPlane\KillPlane.cs" />
     <Compile Include="Assets\UI\Menus\MainMenu\MainMenuSelection.cs" />
+    <Compile Include="Assets\Boss\BridgeForBoss\GoToBoss.cs" />
     <Compile Include="Assets\prefabs\ScrewAiPrefab\EnemyAI.cs" />
+    <Compile Include="Assets\Boss\BridgeForBoss\Appear.cs" />
     <Compile Include="Assets\prefabs\ScrewAiPrefab\ScrewAttack.cs" />
     <Compile Include="Assets\UI\Menus\SelectionUI\MenuNavigation.cs" />
     <Compile Include="Assets\UI\Menus\PauseMenu\PauseMenuSelection.cs" />
@@ -64,12 +66,11 @@
     <Compile Include="Assets\scripts\Player\PlayerControls.cs" />
     <Compile Include="Assets\prefabs\BreakableBrick\ParticleSpawner.cs" />
     <Compile Include="Assets\prefabs\PrefabSpawner\Spawner.cs" />
-    <Compile Include="Assets\Boss\Appear.cs" />
     <Compile Include="Assets\UI\Menus\Menus.cs" />
     <Compile Include="Assets\prefabs\NailFollow\NailCollect.cs" />
     <Compile Include="Assets\UI\WinManager.cs" />
-    <Compile Include="Assets\Boss\GoToBoss.cs" />
     <Compile Include="Assets\prefabs\NUT\CollectibleManager.cs" />
+    <Compile Include="Assets\Boss\BossAI.cs" />
     <Compile Include="Assets\prefabs\NUT\Collectible.cs" />
     <Compile Include="Assets\UI\NailUI\NailSpin.cs" />
     <Compile Include="Assets\prefabs\BreakableBrick\Breakable.cs" />
